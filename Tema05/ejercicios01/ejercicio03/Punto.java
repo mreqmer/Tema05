@@ -30,8 +30,8 @@ public class Punto {
 	public String toString() {
 		String cadena = "";
 		
-		cadena += "(" + x + ", ";
-		cadena += y + ")";
+		cadena += "(" + this.x + ", ";
+		cadena += this.y + ")";
 		
 		return cadena;
 	}

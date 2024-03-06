@@ -5,6 +5,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="ejercicios01"/>
+	<classpathentry kind="src" path="ejercicios02"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
