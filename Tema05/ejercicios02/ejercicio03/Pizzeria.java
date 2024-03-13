@@ -70,7 +70,7 @@ public class Pizzeria {
 			i++;
 		}
 
-//		//esta basura recordar que no son malditas cadenas STRINGS, si quisiera que lo fueran debo hacer .toString()
+//		//recordar que no son malditas cadenas STRINGS, si quisiera que lo fueran debo hacer .toString()
 //		if(pizza.getEstado() == Estado.PEDIDA) {
 //			
 //			servida = true;

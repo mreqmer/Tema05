@@ -43,6 +43,8 @@ public class Pizza {
 	 * 
 	 */
 	private Estado estado;
+	//también puedo dejarso así para inicializarlo
+	//private Estado estado = Estado.PEDIDA;
 	
 
 	/**
@@ -60,6 +62,7 @@ public class Pizza {
 	 * @param tipo Tipo de la pizza
 	 */
 	public Pizza(int codigo, Tamano tamano, Tipo tipo) {
+		this();
 		if(codigo >= 0) {
 			this.codigo = codigo;
 		}
