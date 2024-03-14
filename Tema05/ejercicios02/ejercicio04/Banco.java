@@ -16,23 +16,47 @@ public class Banco {
 		return correcto;
 	}
 	
-//	public boolean sacarDinero(double dinero) {
-//		boolean transaccion = false;
-//
-//		if (this.saldo >= dinero) {
-//			this.saldo -= dinero;
-//			transaccion = true;
-//		}
-//
-//		return transaccion;
-//	}
-//
-//	public void ingresarDinero(double dinero) {
-//		if (dinero > 0) {
-//			this.saldo += dinero;
-//		}
-//	}
-//
+	/**
+	 * retira dinero de la cuenta
+	 * @param usuarios
+	 * @param sacarSaldo
+	 * @return
+	 */
+	public boolean sacarDinero(CuentaCorriente usuarios, double sacarSaldo) {
+		boolean transaccion = false;
+		double saldoInicial = usuarios.getSaldo();
+		double saldoFinal;
+		
+		saldoFinal = saldoInicial - sacarSaldo; 
+		
+		usuarios.setSaldo(saldoFinal);
+		
+		return transaccion;
+	}
+	
+	
+	/**
+	 * ingresa dinero en la cuenta
+	 * @param usuarios
+	 * @param dineroIngresar
+	 * @return
+	 */
+	public boolean ingresarDinero(CuentaCorriente usuarios, double dineroIngresar) {
+		boolean ingresado = false;
+		double saldoInicial = usuarios.getSaldo();
+		double saldoFinal;
+		
+		saldoFinal = saldoInicial + dineroIngresar; 
+		
+		return ingresado;
+	}
+	
+
+	public void mostrarInformacion() {
+		
+		
+		
+	}
 //	public void mostrarInformacion() {
 //		System.out.println("Titular: " + this.nombre);
 //		System.out.println("DNI: " + this.dni);

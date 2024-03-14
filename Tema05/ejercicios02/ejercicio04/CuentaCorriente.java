@@ -21,25 +21,48 @@ public class CuentaCorriente {
 			}
 		}
 
-		public String getDni() {
-			return dni;
-		}
-
+		/**
+		 * 
+		 * @return
+		 */
 		public String getNombre() {
 			return nombre;
 		}
-
+		
+		/**
+		 * 
+		 * @param nombre
+		 */
 		public void setNombre(String nombre) {
-			if (nombre != null && !nombre.equals("")) {
-				this.nombre = nombre;
-			}
+			this.nombre = nombre;
 		}
-
+		
+		/**
+		 * 
+		 * @return
+		 */
 		public double getSaldo() {
 			return saldo;
 		}
-
+		/**
+		 * 
+		 * @param saldo
+		 */
+		public void setSaldo(double saldo) {
+			this.saldo = saldo;
+		}
 		
+		/**
+		 * 
+		 * @return
+		 */
+		public String getDni() {
+			return dni;
+		}
+		
+		/**
+		 * 
+		 */
 		public String toString() {
 			String cadena = "";
 
