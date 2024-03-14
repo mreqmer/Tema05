@@ -2,34 +2,71 @@ package ejercicio04;
 
 public class Banco {
 	
-	CuentaCorriente[] usuarios = new CuentaCorriente[50];
+	static CuentaCorriente[] usuarios = new CuentaCorriente[50];
 	
-	public boolean nuevoUsuario(int dni, String nombre, double saldo) {
-		boolean correcto = false;
+	public static void mostrarInfo(CuentaCorriente cuenta) {
 		
-		for(int i = 0; i < usuarios.length; i++) {
-			if (usuarios[i] != null) {
-				System.out.println(usuarios[i]);
-			}
+		System.out.println(cuenta);
+		
+	}
+	
+	/**
+	 * 
+	 * @param dni
+	 * @param nombre
+	 * @param saldo
+	 * @return
+	 */
+	public static boolean nuevoUsuario(CuentaCorriente cuenta) {
+		boolean correcto = false;
+		int i = 0;
+		
+		while(i<usuarios.length && usuarios[i]!=null) {
+			i++;
+		}
+		
+		if(i<usuarios.length) {
+			usuarios[i] = cuenta;
+			correcto = true;
 		}
 		
 		return correcto;
 	}
 	
 	/**
+	 * 
+	 * @param dni
+	 * @return
+	 */
+	public static int buscaUsuario(String dni) {
+		int i=0;
+		int existe = -1;
+		
+		while(i<usuarios.length && existe == -1){
+			if(usuarios[i]!=null &&  usuarios[i].getDni().equals(dni) ) {
+				existe = i;
+			}
+			i++;
+		}
+		return existe;
+	}
+
+	/**
 	 * retira dinero de la cuenta
 	 * @param usuarios
 	 * @param sacarSaldo
 	 * @return
 	 */
-	public boolean sacarDinero(CuentaCorriente usuarios, double sacarSaldo) {
+	public static boolean sacarDinero(CuentaCorriente usuarios, double sacarSaldo) {
 		boolean transaccion = false;
 		double saldoInicial = usuarios.getSaldo();
-		double saldoFinal;
+		double saldoFinal = saldoInicial;
 		
-		saldoFinal = saldoInicial - sacarSaldo; 
-		
-		usuarios.setSaldo(saldoFinal);
+		if(sacarSaldo <= saldoInicial) {
+			saldoFinal -= sacarSaldo;
+			usuarios.setSaldo(saldoFinal);
+			transaccion = true;
+		}
 		
 		return transaccion;
 	}
@@ -41,35 +78,19 @@ public class Banco {
 	 * @param dineroIngresar
 	 * @return
 	 */
-	public boolean ingresarDinero(CuentaCorriente usuarios, double dineroIngresar) {
+	public static boolean ingresarDinero(CuentaCorriente usuarios, double dineroIngresar) {
 		boolean ingresado = false;
 		double saldoInicial = usuarios.getSaldo();
-		double saldoFinal;
+		double saldoFinal = saldoInicial;
 		
-		saldoFinal = saldoInicial + dineroIngresar; 
-		
+		if(dineroIngresar > 0) {
+			saldoFinal += dineroIngresar;
+			usuarios.setSaldo(saldoFinal);
+			ingresado = true;
+		}
+
 		return ingresado;
 	}
 	
 
-	public void mostrarInformacion() {
-		
-		
-		
-	}
-//	public void mostrarInformacion() {
-//		System.out.println("Titular: " + this.nombre);
-//		System.out.println("DNI: " + this.dni);
-//		System.out.println("Saldo: " + this.saldo);
-//	}
-//	
-//	public boolean equals(CuentaCorriente c) {
-//		boolean sonIguales = false;
-//
-//		if (this.dni.equals(c.dni)) {
-//			sonIguales = true;
-//		}
-//
-//		return sonIguales;
-//	}
 }

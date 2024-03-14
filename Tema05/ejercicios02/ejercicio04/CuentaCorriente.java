@@ -4,6 +4,8 @@ public class CuentaCorriente {
 		private String dni = "";
 		private String nombre = "";
 		private double saldo;
+		
+		
 
 		public CuentaCorriente(String dni, double saldo) {
 			if (dni != null && !dni.equals("")) {
@@ -63,6 +65,7 @@ public class CuentaCorriente {
 		/**
 		 * 
 		 */
+		@Override
 		public String toString() {
 			String cadena = "";
 
@@ -73,6 +76,19 @@ public class CuentaCorriente {
 			cadena += "------------------------------";
 
 			return cadena;
+		}
+		  
+		@Override
+		public boolean equals(Object obj) {
+			boolean iguales = false;
+			
+			CuentaCorriente cuenta = (CuentaCorriente) obj;
+			
+			if(this.dni.equals(cuenta.dni) && this.nombre.equals(cuenta.nombre) && this.saldo == cuenta.saldo ){
+				iguales = true;
+			}
+			
+			return iguales;
 		}
 
 		
